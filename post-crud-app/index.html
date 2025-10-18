@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Post Management System</h1>
+    <div>
+      <h2>Create / Edit Post</h2>
+      <input type="hidden" id="postId">
+      <input type="text" id="title" placeholder="Title" required>
+      <input type="text" id="author" placeholder="Author" required>
+      <textarea id="content" placeholder="Content" rows="4" required></textarea>
+      <input type="text" id="tags" placeholder="Tags (comma separated)">
+      <button class="add" onclick="savePost()">Save Post</button>
+      <button class="cancel" onclick="resetForm()">Cancel</button>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Search posts by title..." onkeyup="renderPosts()">
+    </div>
+
+    <div class="per-page">
+      <label for="perPage">Posts per page:</label>
+      <select id="perPage" onchange="changePostsPerPage()">
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <h2>All Posts</h2>
+    <div id="postList"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
